@@ -102,44 +102,21 @@ public class MainActivity extends AppCompatActivity {
 
 
     public double calculateTR(double srValue) {
-        double tr = (srValue + srValue) * 0.003;
+        double tr = (srValue * 0.003) + srValue;
         return tr;
     }
 
     public double calculateSL1(double srValue) {
-        double sl1 = srValue - (0.01 * srValue);
+        double sl1 = srValue - (0.003 * srValue);
         return sl1;
     }
 
     public double calculateSL2(double srValue) {
-        double sl2 = srValue - (0.003 * srValue);
+        double sl2 = srValue - (0.01 * srValue);
         return sl2;
     }
 
     public double calculateNS(double srValue, double prValue) {
-        return prValue / srValue;
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        return Math.floor(prValue / srValue);
     }
 }
